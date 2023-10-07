@@ -1,5 +1,6 @@
 imgs/
 venv-image2pdf/
+*.pdf
 
 
 # ここから下はPython用gitignoreのデフォルト値
