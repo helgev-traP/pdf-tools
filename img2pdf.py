@@ -5,6 +5,8 @@ portal
 import glob
 import re
 import img2pdf
+import sys
+import os
 
 img_folder_path = input("image folder path? : ")
 
@@ -21,14 +23,28 @@ else:
         p for p in glob.glob(img_folder_path + "/*") if re.search(".*\.(jpg|png)", p)
     ]
 
+if len(image_pathes) == 0:
+    print('no images.')
+    sys.exit()
+
 pdf_name = input("pdf name?          : ")
+print()
 
-print('Detect iamges:')
-for i in image_pathes:
-    print('-\t' + i)
+if len(glob.glob(pdf_name + '.pdf')) != 0:
+    while True:
+        choice = input(pdf_name + '.pdf already exist. Overwrite it?(y/n)')
+        if choice == '' or choice == 'y':
+            break
+        elif choice == 'n':
+            sys.exit()
 
+    os.remove(pdf_name + '.pdf')
 
+print("Detect iamges:")
+for i in range(len(image_pathes)):
+    print(" -> ", end="")
+    print(i, end="")
+    print(".\t" + image_pathes[i])
 
 with open(pdf_name + ".pdf", "wb") as f:
     f.write(img2pdf.convert(image_pathes))
-
