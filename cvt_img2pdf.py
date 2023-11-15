@@ -1,6 +1,6 @@
-'''
+"""
 portal
-'''
+"""
 
 import glob
 import re
@@ -24,21 +24,21 @@ else:
     ]
 
 if len(image_pathes) == 0:
-    print('no images.')
+    print("no images.")
     sys.exit()
 
 pdf_name = input("pdf name?          : ")
 print()
 
-if len(glob.glob(pdf_name + '.pdf')) != 0:
+if len(glob.glob(pdf_name + ".pdf")) != 0:
     while True:
-        choice = input(pdf_name + '.pdf already exist. Overwrite it?(y/n)')
-        if choice == '' or choice == 'y':
+        choice = input(pdf_name + ".pdf already exist. Overwrite it?(y/n)")
+        if choice == "" or choice == "y":
             break
-        elif choice == 'n':
+        elif choice == "n":
             sys.exit()
 
-    os.remove(pdf_name + '.pdf')
+    os.remove(pdf_name + ".pdf")
 
 print("Detect iamges:")
 for i in range(len(image_pathes)):
