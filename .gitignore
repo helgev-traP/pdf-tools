@@ -1,6 +1,8 @@
 imgs/
 venv-image2pdf/
 *.pdf
+venv-pyi/
+venv-nuitka/
 
 
 # ここから下はPython用gitignoreのデフォルト値
