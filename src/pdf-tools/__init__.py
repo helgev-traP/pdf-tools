@@ -10,6 +10,10 @@ if __name__ == "__main__":
         y = True
         argv.pop(argv.index("-y"))
 
+    # この時点でargvは、
+    # {実行ファイル名} プログラム 入力 出力
+    # になる
+
     match argv[1]:
         case "--pdf2img":
             if len(argv) == 4:

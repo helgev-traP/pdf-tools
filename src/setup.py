@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "img2pdf",
-        "pdf2iage",
+        "pdf2image",
         "opencv-python",
     ],
 )
