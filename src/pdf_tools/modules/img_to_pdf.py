@@ -1,11 +1,17 @@
+"""img_to_pdf"""
+
 import glob
 import re
-import img2pdf
 import sys
 import os
+import img2pdf
 
 
 def img_to_pdf(img_folder_path, output_path, y=False):
+    """
+    main
+    実行に成功した場合にTrueを返す
+    """
     if img_folder_path[len(img_folder_path) - 1] == "/":
         image_pathes = [
             p for p in glob.glob(img_folder_path + "*") if re.search(".*\.(jpg|png)", p)
@@ -32,10 +38,11 @@ def img_to_pdf(img_folder_path, output_path, y=False):
         os.remove(pdf_name + ".pdf")
 
     print("Detect iamges:")
-    for i in range(len(image_pathes)):
+
+    for i, image_pathe in enumerate(image_pathes):
         print(" -> ", end="")
         print(i, end="")
-        print(".\t" + image_pathes[i])
+        print(".\t" + image_pathe)
 
     while True and y == False:
         choice = input("conform?")
@@ -46,6 +53,8 @@ def img_to_pdf(img_folder_path, output_path, y=False):
 
     with open(pdf_name + ".pdf", "wb") as f:
         f.write(img2pdf.convert(image_pathes))
+
+    return True
 
 
 if __name__ == "__main__":
@@ -82,10 +91,10 @@ if __name__ == "__main__":
         os.remove(pdf_name + ".pdf")
 
     print("Detect iamges:")
-    for i in range(len(image_pathes)):
+    for i, image_pathe in enumerate(image_pathes):
         print(" -> ", end="")
         print(i, end="")
-        print(".\t" + image_pathes[i])
+        print(".\t" + image_pathe)
 
     with open(pdf_name + ".pdf", "wb") as f:
         f.write(img2pdf.convert(image_pathes))

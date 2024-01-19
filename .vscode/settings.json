@@ -5,5 +5,8 @@
     "python.formatting.provider": "none",
     "cSpell.words": [
         "POPPLER"
-    ]
+    ],
+    "pylint.args": [
+        "--extension-pkg-whitelist=cv2"
+    ],
 }
